@@ -17,6 +17,9 @@ function Circle(x,y) {
 window.onload = function init()
 {
   canvas = document.getElementById("gl-canvas");
+  var parent = document.getElementById("canvas-parent");
+  canvas.width = parent.offsetWidth;
+  canvas.height = parent.offsetHeight;
   rect = canvas.getBoundingClientRect();
   //alert("hello");
 
@@ -35,6 +38,14 @@ window.onload = function init()
     } else if (event.button == 2) {
       changeColors();
     }
+  });
+
+  window.addEventListener("resize", function () {
+      canvas.width = parent.offsetWidth;
+      canvas.height = parent.offsetHeight;
+      for (i = 0; i < circles.length; i++) {
+          circles[i].drawCircle();
+      }
   });
   //setInterval(changeColors,100); //only enable this if you are mean
 }
