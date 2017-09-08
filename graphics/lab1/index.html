@@ -1,0 +1,90 @@
+<html>
+  <head>
+      <script type="text/javascript" src="lab1.js"></script>
+      <title>Graphics Lab 1 | Jamie Leary</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <link rel=stylesheet type=text/css href="index.css"/>
+      <link rel=stylesheet type=text/css href="../../index.css"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://use.fontawesome.com/e84df7d316.js"></script>
+  </head>
+
+  <body background="../../forrest.jpg">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <div class="page-flexbox-wrapper">
+
+      <header>
+        <nav class="nav-wrapper green lighten-">
+          <a href="#" class="brand-logo center">Jamie Leary</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="projects.html">My Projects</a></li>
+            <li><a href="other.html">Other Stuff</a></li>
+        </nav>
+      </header>
+
+      <main>
+        <div class="container section">
+          <div class="row">
+
+            <div class="col s12 m6 l4 full-page">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img src="../pixel.gif">
+                </div>
+                <div class="card-content">
+                  <span class="card-title black-text">Graphics Lab 1</span>
+                  <p>
+                    Right clicking in the canvas will create a black circle
+                    with a random radius. Right clicking will change the
+                    color of all circles.
+                  </p>
+                </div>
+                <div class="card-action center green-text">
+                  <i class="fa fa-lg fa-github"></i>
+                  <a href=https://github.com/delearyus>Github</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l8">
+              <canvas id="gl-canvas" width="800" height="800" oncontextmenu="return false">:(</canvas>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer class="page-footer green">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 m6 s12">
+              <h5 class="white-text">Sample Text</h5>
+              <p class="grey-text text-lighten-4">
+                This page is hosten by Willamette University and built using
+                the Materialize CSS framework and the Font Awesome webfont.
+                Source is available for viewing on my github page if you are
+                interested in taking a look.
+              </p>
+            </div>
+            <div class="col l4 offset-l2 m4 offset-m2 s12 right-align">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">&copy; 2017 Jamie Leary
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
