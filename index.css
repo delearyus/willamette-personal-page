@@ -1,24 +1,21 @@
 body {
-    /*display: flex;*/
-    /*min-height: 100vh;*/
-    /*flex-direction: column;*/
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100%;
-    margin: 0;
-}
-html {
-  margin: 0;
-  height: 100%;
+    margin: 0px;
 }
 
-.app {
-    min-height:100%;
-    margin-bottom:-180px;
+.page-flexbox-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-footer {
-  height: 180px;
+main {
+  flex: 1 1 auto;
+}
+
+.project {
+  min-height: 250;
 }

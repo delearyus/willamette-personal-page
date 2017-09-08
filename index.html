@@ -4,9 +4,15 @@
         <title>Jamie Leary</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel=stylesheet type=text/css href="index.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://use.fontawesome.com/e84df7d316.js"></script>
     </head>
     <body background="forrest.jpg">
-      <div class="app">
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+      <div class="page-flexbox-wrapper">
 
         <header>
           <nav class="nav-wrapper green lighten-">
@@ -19,58 +25,183 @@
 
 
         <main>
-          <div class="container">
+          <div class="container section">
             <div class="row">
-            <div class="col s1">1</div>
-            <div class="col s1">2</div>
-            <div class="col s1">3</div>
-            <div class="col s1">4</div>
-            <div class="col s1">5</div>
-            <div class="col s1">6</div>
-            <div class="col s1">7</div>
-            <div class="col s1">8</div>
-            <div class="col s1">9</div>
-            <div class="col s1">10</div>
-            <div class="col s1">11</div>
-            <div class="col s1">12</div>
-          </div>
-            <div class="row">
-              <div class="col s12 m6 l3">
-                <div class="card">
+
+              <div class="col s12 m6 l3 full-page">
+                <div class="card hoverable">
                   <div class="card-image">
                     <img src="pixel.jpg">
-                    <span class="card-title">About Me</span>
                   </div>
                   <div class="card-content">
-                    <p>Here's some text! I like to make programs.</p>
+                    <div id=about>
+                      <span class="card-title black-text">About Me</span>
+                      <p>
+                        My name is Jamie Leary, I am a mathematics and computer
+                        science double major at Willamette University. I enjoy
+                        working with functional programming and Haskell,
+                        programming language theory, and cybersecurity.
+                      </p>
+                    </div>
+                    <div id=contact>
+                      <span class="card-title black-text">Contact Info</span>
+                      <ul class="fa-ul">
+                        <li>
+                          <i class="fa-li fa fa-lg fa-envelope"></i>
+                          <a href="mailto:jmleary@willamette.edu">
+                            jmleary@willamette.edu
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa-li fa fa-lg fa-linkedin-square"></i>
+                          <a href="#">placeholder</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                      <li class="tab"><a class="active" href="#about">About Me</a></li>
+                      <li class="tab"><a href="#contact">Contact Info</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-action center green-text">
+                    <i class="fa fa-lg fa-github"></i>
+                    <a href=https://github.com/delearyus>Github</a>
                   </div>
                 </div>
               </div>
+
+              <div class="col s12 m6 l9">
+                <div class="row projects">
+
+                  <div class="col s6 l3">
+                    <div class="card center section project hoverable">
+                      <div class="activator card-image waves-effect waves-block waves-dark">
+                      <i class="activator large fa fa-home"></i>
+                      </div>
+                      <div class="activator card-content waves-effect waves-block waves-dark">
+                        <p class="promo-caption activator">
+                          Personal Homepage
+                        </p>
+                        <p class="light center activator">
+                          Code for this website
+                        </p>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title">Personal Homepage</span>
+                        <p>
+                          A personal page to display some of my coding projects
+                        </p>
+                        <a href=https://github.com/delearyus/willamette-personal-page>View on Github</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col s6 l3">
+                    <div class="card center section project hoverable">
+                      <div class="activator card-image waves-effect waves-block waves-dark">
+                        <i class="activator large fa fa-exchange"></i>
+                      </div>
+                      <div class="activator card-content waves-effect waves-block waves-dark">
+                        <p class="promo-caption activator">
+                          Junior Seminar
+                        </p>
+                        <p class="light center activator">
+                          Federated Social Network
+                        </p>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title">Junior Seminar</span>
+                        <p>
+                          Proof-of-concept for decentralized social media
+                        </p>
+                        <a href=https://github.com/delearyus/tba>View on Github</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col s6 l3">
+                    <div class="card center section project hoverable">
+                      <div class="activator card-image waves-effect waves-block waves-dark">
+                        <i class="activator large fa fa-twitter"></i>
+                      </div>
+                      <div class="activator card-content waves-effect waves-block waves-dark">
+                        <p class="promo-caption activator">
+                          Twitter Fortune Generator
+                        </p>
+                        <p class="light center activator">
+                          Generate fortune files from tweets
+                        </p>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title">T.F.G.</span>
+                        <p>
+                        Utility to generate files for the linux <code>fortune</code> command
+                        </p>
+                        <a href=https://github.com/delearyus/twitter-fortune-generator>View on Github</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col s6 l3">
+                    <div class="card center section project hoverable">
+                      <div class="activator card-image waves-effect waves-block waves-dark">
+                        <i class="activator large fa fa-cube"></i>
+                      </div>
+                      <div class="activator card-content waves-effect waves-block waves-dark">
+                        <p class="promo-caption activator">
+                          Graphics Lab 2
+                        </p>
+                        <p class="light center activator">
+                          Lab 2 for CS445 Computer Graphics
+                        </p>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title">Graphics Lab 2</span>
+                        <p>
+                          Simple demonstration of rendering primitives in WebGL
+                        </p>
+                        <a href=https://github.com/delearyus/graphics-lab-2>View on Github</a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
         </main>
 
+
+        <footer class="page-footer green">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 m6 s12">
+                <h5 class="white-text">Sample Text</h5>
+                <p class="grey-text text-lighten-4">
+                  This page is hosten by Willamette University and built using
+                  the Materialize CSS framework and the Font Awesome webfont.
+                  Source is available for viewing on my github page if you are
+                  interested in taking a look.
+                </p>
+              </div>
+              <div class="col l4 offset-l2 m4 offset-m2 s12 right-align">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">&copy; 2017 Jamie Leary
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+
       </div>
 
-      <footer class="page-footer green">
-        <div class="container">
-          <div class="row">
-            <div class="col 16">
-              <h5 class="white-text">Footer Stuff</h5>
-              <p class="grey-text text-lighten-4">Heres some text and stuff</p>
-            </div>
-            <div class="col 14 offset-12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container">&copy; 2017 Jamie Leary
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div>
-        </div>
-      </footer>
     </body>
 </html>
