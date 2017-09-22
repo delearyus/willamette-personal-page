@@ -1,6 +1,6 @@
 <html>
-    <script id="vertex-shader" type="x-shader/x-vertex">
-       attribute vec4 vPosition;
+  <script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
        attribute vec4 vColor;
        uniform   mat4 uProjection; // projection matrix
        uniform   mat4 uModel_view; // model view matrix
@@ -12,10 +12,10 @@
            color = vColor;
            gl_Position = uProjection * uModel_view * vPosition;
        }
-    </script>
+  </script>
 
-    <script id="fragment-shader" type="x-shader/x-fragment">
-        precision mediump float;
+  <script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
 
         varying vec4 color;
 
@@ -24,132 +24,182 @@
         {
              gl_FragColor = color;
         }
-    </script>
+  </script>
 
-    <script type="text/javascript" src="Common/webgl-utils.js"></script>
-    <script type="text/javascript" src="Common/initShaders.js"></script>
-    <script type="text/javascript" src="Common/MV.js"></script>
-    <script type="text/javascript" src="geometry/Cube.js"></script>
-    <script type="text/javascript" src="geometry/Pyramid.js"></script>
-    <script type="text/javascript" src="geometry/Cylinder.js"></script>
-    <script type="text/javascript" src="geometry/Cone.js"></script>
-    <!-- TO DO:  ADD OTHER SHAPE FILES HERE -->
-    <script type="text/javascript" src="geometry/Shapes.js"></script>
-    <script type="text/javascript" src="render_scene.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel=stylesheet type=text/css href="../index.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://use.fontawesome.com/e84df7d316.js"></script>
-    <title>Geometry Lab 2 | Jamie Leary</title>
+  <script type="text/javascript" src="Common/webgl-utils.js"></script>
+  <script type="text/javascript" src="Common/initShaders.js"></script>
+  <script type="text/javascript" src="Common/MV.js"></script>
+  <script type="text/javascript" src="geometry/Cube.js"></script>
+  <script type="text/javascript" src="geometry/Pyramid.js"></script>
+  <script type="text/javascript" src="geometry/Cylinder.js"></script>
+  <script type="text/javascript" src="geometry/Cone.js"></script>
+  <!-- TO DO:  ADD OTHER SHAPE FILES HERE -->
+  <script type="text/javascript" src="geometry/Shapes.js"></script>
+  <script type="text/javascript" src="render_scene.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!--<link rel=stylesheet type=text/css href="../index.css"/>-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://use.fontawesome.com/e84df7d316.js"></script>
+  <title>Geometry Lab 2 | Jamie Leary</title>
 
-    <body background="../../forrest.jpg">
+  <body background="../../forrest.jpg">
 
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-      <div class="page-flexbox-wrapper">
+    <div class="page-flexbox-wrapper">
 
-        <header>
-          <nav class="nav-wrapper green lighten-">
-            <a href="/index.html" class="brand-logo center">Jamie Leary</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="projects.html">My Projects</a></li>
-              <li><a href="other.html">Other Stuff</a></li>
-          </nav>
-        </header>
+      <header>
+        <nav class="nav-wrapper green lighten-">
+          <a href="../../index.html" class="breadcrumb">Home</a>
+          <a href="../index.html" class="breadcrumb">Graphics</a>
+          <a href="#!" class="breadcrumb">Lab 2</a>
+          <a href="/index.html" class="brand-logo center">Jamie Leary</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="projects.html">My Projects</a></li>
+            <li><a href="other.html">Other Stuff</a></li>
+          </ul>
+        </nav>
+      </header>
 
-        <main>
+      <main>
 
-          <div class="container section">
-            <div class="row">
-              <div class="col s12 m6 l4">
-                <div class="card hoverable">
-                  <div class="card-image">
-                    <img src="pixel.jpg">
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title black-text">Graphics Lab 2</span>
-                    <p>
-                      A simple engine for rendering various primitives. Click the
-                      buttons to change the axis of rotation. The sliders control the number
-                      of divisions in primitives where that is applicable.
-                    </p>
-                    <br/>
-                    <span class="card-title black-text">Controls</span>
-                    <div class="row">
-                      <label>Rotation Lock</label>
-                      <div class="switch right">
-                        <label>
-                          Off
-                          <input type=checkbox id=pauseButton>
-                          <span class="lever"></span>
-                          On
-                        </label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <label>Outline</label>
-                      <div class="switch right">
-                        <label>
-                          Off
-                          <input type=checkbox id=bOutline>
-                          <span class="lever"></span>
-                          On
-                        </label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <a id="xButton" class="waves-effect waves-light btn">Rotate X</a>
-                      <a id="yButton" class="waves-effect waves-light btn">Rotate Y</a>
-                      <a id="zButton" class="waves-effect waves-light btn">Rotate Z</a>
-                    </div>
-                    <button id= "xButton">Rotate X</button>
-                    <button id= "yButton">Rotate Y</button>
-                    <button id= "zButton">Rotate Z</button>
-
-                    <select id="ShapesChoice">
-                        <option value="0">Cube</option>
-                        <option value="1">Pyramid</option>
-                        <option value="2">Cylinder</option>
-                        <option value="2">Cone</option>
-                        <!-- TO DO:  ADD OTHER SHAPES -->
-                    </select>
-                  </div>
-                  <div class="card-action center green-text">
-                    <i class="fa fa-lg fa-github"></i>
-                    <a href=https://github.com/delearyus>Github</a>
+      <div class="container section">
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card hoverable">
+              <div class="card-image">
+                <img src="pixel.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title black-text">Graphics Lab 2</span>
+                <p>
+                A simple engine for rendering various primitives. Click the
+                buttons to change the axis of rotation. The sliders control the number
+                of divisions in primitives where that is applicable.
+                </p>
+                <br/>
+                <span class="card-title black-text">Controls</span>
+                <div class="row">
+                  <label>Rotation Lock</label>
+                  <div class="switch right">
+                    <label>
+                      Off
+                      <input type=checkbox id=pauseButton>
+                      <span class="lever"></span>
+                      On
+                    </label>
                   </div>
                 </div>
+                <div class="row">
+                  <label>Outline</label>
+                  <div class="switch right">
+                    <label>
+                      Off
+                      <input type=checkbox id=bOutline>
+                      <span class="lever"></span>
+                      On
+                    </label>
+                  </div>
+                </div>
+                <div class="row center">
+                  <a id="xButton" class="waves-effect waves-light btn">Rotate X</a>
+                </div>
+                <div class="row center">
+                  <a id="yButton" class="waves-effect waves-light btn">Rotate Y</a>
+                </div>
+                <div class="row center">
+                  <a id="zButton" class="waves-effect waves-light btn">Rotate Z</a>
+                </div>
+
+                <div class="row">
+                  <div class="col 12">
+                  <label>Select Primitive</label>
+                    <select id="ShapesChoice" class="browser-default">
+                      <option value="0" selected>Cube</option>
+                      <option value="1">Pyramid</option>
+                      <option value="2">Cylinder</option>
+                      <option value="2">Cone</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div style="display:none;" id="ConeInfo">
+                    Number of Divisions:
+                    (<span id=coneCurEdges>8</span>)
+                    <br/>
+                    <p class="range-field">
+                      <input id="coneNumEdges" type=range min=2 max=32 value="8" />
+                    </p>
+                  </div>
+                  <div style="display:none;" id="CylinderInfo">
+                    <label>Number of Divisions:<label>
+                    (<span id=cylCurEdges>8</span>)
+                    <br/>
+                    <p class="range-field">
+                      <input id="cylNumEdges" type=range min=2 max=32 value="8" />
+                    </p>
+                  </div>
+                </div>
+
+                <!--<select id="ShapesChoice">-->
+                <!--<option value="0">Cube</option>-->
+                <!--<option value="1">Pyramid</option>-->
+                <!--<option value="2">Cylinder</option>-->
+                <!--<option value="2">Cone</option>-->
+                <!--[> TO DO:  ADD OTHER SHAPES <]-->
+                <!--</select>-->
               </div>
-
-              <div id="canvas-parent" style="border: solid red 1px;" class="col s12 m6 l8">
-                <canvas id="gl-canvas" height=800px width=800px>
-                    Oops ... your browser doesn't support the HTML5 canvas element
-                </canvas>
-
+              <div class="card-action center green-text">
+                <i class="fa fa-lg fa-github"></i>
+                <a href=https://github.com/delearyus>Github</a>
               </div>
             </div>
           </div>
 
-        </main>
-
+          <div id="canvas-parent" class="col s12 m6 l8">
+            <canvas id="gl-canvas" style="border: solid green 2px;" height=800px width=800px>
+              Oops ... your browser doesn't support the HTML5 canvas element
+            </canvas>
+          </div>
+        </div>
       </div>
 
+      </main>
+        <footer class="page-footer green">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 m6 s12">
+                <h5 class="white-text">Sample Text</h5>
+                <p class="grey-text text-lighten-4">
+                  This page is hosten by Willamette University and built using
+                  the Materialize CSS framework and the Font Awesome webfont.
+                  Source is available for viewing on my github page if you are
+                  interested in taking a look.
+                </p>
+              </div>
+              <div class="col l4 offset-l2 m4 offset-m2 s12 right-align">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">&copy; 2017 Jamie Leary
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
 
-        <br/>
-        <br/>
+    </div>
 
-        <div style="display:none;" id="ConeInfo">
-          Number of Divisions:<br/>
-          2 <input id="coneNumEdges" type=range min=2 max=32 value="8" /> 32
-          (<span id=coneCurEdges>8</span>)
-        </div>
-        <div style="display:none;" id="CylinderInfo">
-          Number of Divisions:<br/>
-          2 <input id="cylNumEdges" type=range min=2 max=32 value="8" /> 32
-          (<span id=cylCurEdges>8</span>)
-        </div>
+  <script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+  </script>
 
-    </body>
+  </body>
 </html>

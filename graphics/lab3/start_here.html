@@ -1,0 +1,111 @@
+<html>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <script id="vertex-shader" type="x-shader/x-vertex">
+       attribute vec4 vPosition;
+       //attribute vec4 vColor;
+       uniform   mat4 uProjection; // projection matrix
+       uniform   mat4 uModel_view; // model view matrix
+ 
+       varying vec4 color;
+            
+       void main() 
+       {
+           //color = vColor;
+           gl_Position = uProjection * uModel_view * vPosition;
+       } 
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+
+        uniform vec4 uColor;
+
+        void
+        main()
+        {
+             gl_FragColor = uColor;
+        }
+    </script>
+
+    <script type="text/javascript" src="Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="Common/initShaders.js"></script>
+    <script type="text/javascript" src="Common/MV.js"></script>
+    <script type="text/javascript" src="Common/MatrixStack.js"></script>
+    
+ 
+    <script type="text/javascript" src="geometry/Cube.js"></script>
+    <script type="text/javascript" src="geometry/Cylinder.js"></script>
+
+    <script type="text/javascript" src="geometry/Tree.js"></script>
+   
+    <script type="text/javascript" src="geometry/Shapes.js"></script>
+    <script type="text/javascript" src="Controls.js"></script>
+    <script type="text/javascript" src="render_scene.js"></script>
+
+    <body>
+
+        <h2> Lab 3: Transformations</h2>
+
+        <div style="display: flex; flex-direction: right; justify-content: left;">
+
+          <canvas id="gl-canvas" width="512" height="512">
+              Oops ... your browser doesn't support the HTML5 canvas element
+          </canvas>
+
+          <div class=spacer style="width: 40px;"></div>
+
+          <div id=controls> 
+            <div id=col1 style="width: 200px">
+              <div>
+                Warning: Tree generation is recursive and exponential, so be careful with
+                high values if you don't want to crash your browser
+              </div>
+              <div>
+                <br>
+                View Angle: <br>
+                0
+                <input id=viewangle type=range value=0 min=0 max=360></input>
+                360
+              </div>
+              <div>
+                Branch Angle: <br>
+                0
+                <input id=branchangle type=range value=20 min=0 max=180></input>
+                180
+              </div>
+              <div>
+                Branch Splits: <br>
+                0
+                <input id=branchsplits type=range value=3 min=1 max=10></input>
+                10
+              </div>
+                
+            </div>
+
+            <div id=col2>
+              <div>
+                <br>
+                <input id=showoutline type=checkbox></input>
+                Show Outline?
+              </div>
+              <div>
+                <br>
+                Tree Height: <br>
+                1
+                <input id=treeheight type=range value=6 min=1 max=10></input>
+                10
+              </div>
+              <div>
+                <br>
+                Distance: <br>
+                1
+                <input id=distance type=range value=1 min=1 max=10 step=0.1></input>
+                4
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+    </body>
+</html>

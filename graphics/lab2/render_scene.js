@@ -27,7 +27,7 @@ window.onload = function init()
         alert("WebGL isn't available");
     }
     gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.clearColor(0.7, 0.7, 0.7, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
 
     gl.enable(gl.DEPTH_TEST);  // enable the depth buffer
 
@@ -69,7 +69,7 @@ function initWindowListeners()  {
         bOutline = document.getElementById("bOutline").checked;
         Shapes.initBuffers(shape,bOutline);
     };
-    document.getElementById("ShapesChoice").onclick = function (event) {
+    document.getElementById("ShapesChoice").addEventListener('click',function (event) {
         var x = document.getElementById("ShapesChoice").selectedIndex;
         updateInfo();
         switch (x) {   // cube=0, cylinder=1, cone=2, disk=3
@@ -91,7 +91,7 @@ function initWindowListeners()  {
                 break;
             // TO DO:  ADD OTHER CASES FOR OTHER SHAPES
         }
-    };
+    });
     document.getElementById("coneNumEdges").addEventListener('input', function (event) {
         var e = document.getElementById("coneNumEdges").value;
         document.getElementById("coneCurEdges").innerHTML = e;
